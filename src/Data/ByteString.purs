@@ -47,7 +47,6 @@ import Data.Array as Array
 import Data.Foldable (class Foldable, foldMapDefaultL)
 import Data.Leibniz (type (~), Leibniz(..), coerceSymm)
 import Data.Maybe (Maybe (..), fromJust)
-import Data.Newtype (class Newtype)
 import Node.Buffer (Buffer)
 import Node.Buffer as Buffer
 import Node.Encoding (Encoding(..))
@@ -191,8 +190,6 @@ reverse = pack <<< Array.reverse <<< unpack
 
 -- | A foldable byte string.
 newtype Foldable a = Foldable ByteString
-
-derive instance newtypeFoldable :: Newtype (Foldable (Int / Mod256)) _
 
 instance foldableFoldable :: Foldable Foldable where
     foldMap = foldMapDefaultL
